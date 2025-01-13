@@ -1,2 +1,52 @@
-
-console.log("hello");
+// Quotes array
+const quotes = [
+    "The best way to predict the future is to invent it. – Alan Kay",
+    "Life is 10% what happens to us and 90% how we react to it. – Charles R. Swindoll",
+    "Your time is limited, so don't waste it living someone else's life. – Steve Jobs",
+    "Strive not to be a success, but rather to be of value. – Albert Einstein",
+    "Happiness is not something ready-made. It comes from your own actions. – Dalai Lama",
+    "The only way to do great work is to love what you do. – Steve Jobs",
+  ];
+  
+  // Create container
+  const container = document.createElement('div');
+  container.style.fontFamily = 'Arial, sans-serif';
+  container.style.textAlign = 'center';
+  container.style.margin = '50px';
+  container.style.backgroundColor = '#f3f4f6';
+  document.body.appendChild(container);
+  
+  // Create quote box
+  const quoteBox = document.createElement('div');
+  quoteBox.style.padding = '20px';
+  quoteBox.style.border = '2px solid #ddd';
+  quoteBox.style.borderRadius = '5px';
+  quoteBox.style.display = 'inline-block';
+  quoteBox.style.backgroundColor = '#fff';
+  container.appendChild(quoteBox);
+  
+  // Create paragraph to display the quote
+  const quoteText = document.createElement('p');
+  quoteText.textContent = 'Click the button to see a quote!';
+  quoteBox.appendChild(quoteText);
+  
+  // Create button
+  const button = document.createElement('button');
+  button.textContent = 'Generate Quote';
+  button.style.marginTop = '20px';
+  button.style.padding = '10px 20px';
+  button.style.backgroundColor = '#007BFF';
+  button.style.color = 'white';
+  button.style.border = 'none';
+  button.style.borderRadius = '5px';
+  button.style.cursor = 'pointer';
+  button.onmouseover = () => (button.style.backgroundColor = '#0056b3');
+  button.onmouseout = () => (button.style.backgroundColor = '#007BFF');
+  container.appendChild(button);
+  
+  // Add event listener to generate a random quote
+  button.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteText.textContent = quotes[randomIndex];
+  });
+  
